@@ -11,11 +11,11 @@ public class Shot : MonoBehaviour {
     // Use this for initialization
     void Start () {
         lifeBegun = Time.time;
-        Debug.Log(transform.eulerAngles.z);
+        //Debug.Log(transform.eulerAngles.z);
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (Time.time > (lifeBegun + lifeTime)) {
             Destroy(gameObject);
         } else {
