@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
         //Rotate Player around the cursor
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Quaternion rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
