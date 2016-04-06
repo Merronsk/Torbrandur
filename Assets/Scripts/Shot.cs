@@ -6,12 +6,12 @@ public class Shot : MonoBehaviour {
 
     public float speed;
     public float lifeTime = 1;
+    public float damage;
     private float lifeBegun;
 
     // Use this for initialization
     void Start () {
         lifeBegun = Time.time;
-        //Debug.Log(transform.eulerAngles.z);
     }
 	
 	// Update is called once per frame
@@ -25,6 +25,15 @@ public class Shot : MonoBehaviour {
         }
     }
 
+    // Collision with another object
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Enemy") {
+            collider.SendMessage("ApplyDamage", damage);
+            Destroy(gameObject);
+        }
+    }
+
+    // Calculate degrees to radians
     private float degreeToRadian(float degree) {
         return (float) ((Math.PI / 180) * degree);
     }
