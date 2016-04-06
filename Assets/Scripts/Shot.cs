@@ -26,9 +26,9 @@ public class Shot : MonoBehaviour {
     }
 
     // Collision with another object
-    void OnTriggerEnter2D(Collider2D coll) {
-        if (coll.gameObject.tag == "Enemy") {
-            coll.SendMessage("RecieveDamage", damage);
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.tag == "Enemy") {
+            collider.SendMessage("ApplyDamage", damage);
             Destroy(gameObject);
         }
     }
