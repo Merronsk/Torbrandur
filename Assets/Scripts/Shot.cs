@@ -30,6 +30,7 @@ public class Shot : MonoBehaviour {
         if (collider.gameObject.tag == "Enemy") {
             collider.SendMessage("ApplyDamage", damage);
             Destroy(gameObject);
+            
         }
     }
 
